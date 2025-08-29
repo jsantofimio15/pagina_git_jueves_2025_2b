@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera pagina</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primera pagina</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f3f3f3;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .footer {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
+  <div class="card">
     <h1>Random</h1>
-    <img src="https://picsum.photos/600/600" alt="">
-    <h1>Random</h1>
-    <h1></h1>
+    <img id="randomImage" src="https://picsum.photos/600/600?random=1" alt="Random image">
     <br>
-    <h1></h1>
+    <button onclick="cambiarImagen()">Cambiar Imagen</button>
+    <div class="footer">Chelsea</div>
+  </div>
+
+  <script>
+    function cambiarImagen() {
+      const img = document.getElementById('randomImage');
+      img.src = "https://picsum.photos/600/600?random=" + Math.floor(Math.random() * 1000);
+    }
+  </script>
 </body>
 </html>
