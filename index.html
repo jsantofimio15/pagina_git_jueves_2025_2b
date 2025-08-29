@@ -10,9 +10,9 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: #f3f3f3;
       margin: 0;
       font-family: Arial, sans-serif;
+      transition: background 1s ease;
     }
     .card {
       background: white;
@@ -39,11 +39,6 @@
     button:hover {
       background: #0056b3;
     }
-    .footer {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #333;
-    }
   </style>
 </head>
 <body>
@@ -52,14 +47,25 @@
     <img id="randomImage" src="https://picsum.photos/600/600?random=1" alt="Random image">
     <br>
     <button onclick="cambiarImagen()">Cambiar Imagen</button>
-    <div class="footer">Chelsea</div>
   </div>
 
   <script>
+    // Cambiar imagen
     function cambiarImagen() {
       const img = document.getElementById('randomImage');
       img.src = "https://picsum.photos/600/600?random=" + Math.floor(Math.random() * 1000);
     }
+
+    // Cambiar fondo dinámico
+    function cambiarFondo() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      document.body.style.background = `rgb(${r}, ${g}, ${b})`;
+    }
+
+    // Cambiar cada 2 segundos
+    setInterval(cambiarFondo, 2000);
   </script>
 </body>
 </html>
